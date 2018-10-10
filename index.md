@@ -25,4 +25,6 @@
 * [Bruno Grande](https://github.com/scientificbruno)
 * [Prasath Pararajalingam](https://github.com/ppararaj)
 * Aixiang Jiang
+* Marco Albuquerque
+
 
