@@ -1,6 +1,6 @@
 # Morin laboratory
 ### Software for Cancer Genomics
-logo: [circos_links_web.gif]
+
 #### Error suppression and variant calling from duplex sequencing libraries
 [Dellingr](https://github.com/morinlab/Dellingr)
 
