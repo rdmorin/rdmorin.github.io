@@ -1,18 +1,18 @@
 
 ### Software for Cancer Genomics
 
-#### Error suppression and variant calling from duplex sequencing libraries
-[Dellingr](https://github.com/morinlab/Dellingr)
 
 #### Infering clustered mutations from many cancer genomes
+[Rainstorm/Doppler<sup>1</sup>](https://github.com/rdmorin/mutation_rainstorm)
 
-[Rainstorm/Doppler](https://github.com/rdmorin/mutation_rainstorm)
+#### Error suppression and variant calling from duplex sequencing libraries
+[Dellingr<sup>2</sup>](https://github.com/morinlab/Dellingr)
+
+#### Cancer Genomics Toolkit for Galaxy
+[tools_morinlab<sup>3</sup>](https://github.com/morinlab/tools-morinlab)
 
 #### Read and somatic variant simulator
 [JARS](https://github.com/morinlab/JARS)
-
-#### Cancer Genomics Toolkit for Galaxy
-[tools_morinlab](https://github.com/morinlab/tools-morinlab)
 
 ### Publications using this software
 1. [Genome-wide discovery of somatic regulatory variants in diffuse large B-cell lymphoma](https://www.nature.com/articles/s41467-018-06354-3)
