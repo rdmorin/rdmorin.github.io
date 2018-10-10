@@ -1,4 +1,4 @@
-# Morin laboratory
+
 ### Software for Cancer Genomics
 
 #### Error suppression and variant calling from duplex sequencing libraries
