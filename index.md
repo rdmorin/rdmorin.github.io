@@ -14,3 +14,7 @@
 ### Cancer Genomics Toolkit for Galaxy
 [tools_morinlab](https://github.com/morinlab/tools-morinlab)
 
+## Publications
+1. [Genome-wide discovery of somatic regulatory variants in diffuse large B-cell lymphoma](https://www.nature.com/articles/s41467-018-06354-3)
+2. [Targeted error-suppressed quantification of circulating tumor DNA using semi-degenerate barcoded adapters and biotinylated baits](https://www.nature.com/articles/s41598-017-10269-2)
+3. [Enhancing knowledge discovery from cancer genomics data with Galaxy](https://academic.oup.com/gigascience/article-lookup/doi/10.1093/gigascience/gix015)
