@@ -21,8 +21,8 @@
 
 ### Contributors
 
-[Chris Rushton](https://github.com/ckrushton)
-[Bruno Grande](https://github.com/scientificbruno)
-[Prasath Pararajalingam](https://github.com/ppararaj)
-Aixiang Jiang
+* [Chris Rushton](https://github.com/ckrushton)
+* [Bruno Grande](https://github.com/scientificbruno)
+* [Prasath Pararajalingam](https://github.com/ppararaj)
+* Aixiang Jiang
 
