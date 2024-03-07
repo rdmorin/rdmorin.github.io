@@ -1,0 +1,145 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Word Cloud</title>
+    <script src="../lib/d3/d3.js" charset="utf-8"></script>
+    <script src="../lib/d3/d3.layout.cloud.js"></script>
+    <script src="../d3.wordcloud.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+  <body style="text-align: center">
+    <div id="wordcloud"></div>
+    <script>
+      var words = [{"text":"lymphoma", "size":120},{"text":"mutations", "size":120},{"text":"b-cell", "size":120},{"text":"diffuse", "size":120},{"text":"large", "size":120},{"text":"sequencing", 
+"size":120},{"text":"analysis", "size":120},{"text":"cell", "size":120},{"text":"profiling", "size":110},{"text":"tumor", "size":110},{"text":"dna", "size":110},{"text":"follicular", 
+"size":110},{"text":"gene", "size":110},{"text":"genetic", "size":110},{"text":"human", "size":110},{"text":"expression", "size":100},{"text":"genomic", "size":100},{"text":"lymphomas", 
+"size":100},{"text":"cancer", "size":100},{"text":"clinical", "size":100},{"text":"circulating", "size":100},{"text":"dlbcl", "size":100},{"text":"recurrent", "size":100},{"text":"somatic", 
+"size":100},{"text":"cells", "size":87.5},{"text":"characterization", "size":87.5},{"text":"ezh2", "size":87.5},{"text":"non-hodgkin", "size":87.5},{"text":"novel", "size":87.5},{"text":"transcriptome", 
+"size":87.5},{"text":"using", "size":87.5},{"text":"discovery", "size":75},{"text":"genome", "size":75},{"text":"microrna", "size":75},{"text":"molecular", "size":75},{"text":"parallel", 
+"size":75},{"text":"signature", "size":75},{"text":"targeted", "size":75},{"text":"associated", "size":62.5},{"text":"burkitt", "size":62.5},{"text":"distinct", "size":62.5},{"text":"massively", 
+"size":62.5},{"text":"mutation", "size":62.5},{"text":"next-generation", "size":62.5},{"text":"relapsed", "size":62.5},{"text":"response", "size":62.5},{"text":"rna", "size":62.5},{"text":"alterations", 
+"size":50},{"text":"cell-free", "size":50},{"text":"data", "size":50},{"text":"detection", "size":50},{"text":"double-hit", "size":50},{"text":"evolution", "size":50},{"text":"genes", 
+"size":50},{"text":"genome-wide", "size":50},{"text":"identification", "size":50},{"text":"identifies", "size":50},{"text":"mammalian", "size":50},{"text":"mantle", "size":50},{"text":"model", 
+"size":50},{"text":"myc", "size":50},{"text":"patients", "size":50},{"text":"primary", "size":50},{"text":"rearrangements", "size":50},{"text":"reveals", "size":50},{"text":"variants", 
+"size":50},{"text":"activation", "size":37.5},{"text":"bcl2", "size":37.5},{"text":"blood", "size":37.5},{"text":"cdna", "size":37.5},{"text":"classification", "size":37.5},{"text":"comprehensive", 
+"size":37.5},{"text":"death", "size":37.5},{"text":"defines", "size":37.5},{"text":"digital", "size":37.5},{"text":"droplet", "size":37.5},{"text":"embryonic", "size":37.5},{"text":"frequent", 
+"size":37.5},{"text":"heterogeneity", "size":37.5},{"text":"identified", "size":37.5},{"text":"impact", "size":37.5},{"text":"leukemia", "size":37.5},{"text":"multiplex", "size":37.5},{"text":"neoplasms", 
+"size":37.5},{"text":"pcr", "size":37.5},{"text":"provides", "size":37.5},{"text":"quantification", "size":37.5},{"text":"rare", "size":37.5},{"text":"resistance", "size":37.5},{"text":"role", 
+"size":37.5},{"text":"stem", "size":37.5},{"text":"structural", "size":37.5},{"text":"study", "size":37.5},{"text":"subgroup", "size":37.5},{"text":"target", "size":37.5},{"text":"therapeutic", 
+"size":37.5},{"text":"tumors", "size":37.5},{"text":"whole-genome", "size":37.5},{"text":"within", "size":37.5},{"text":"activating", "size":25},{"text":"acute", "size":25},{"text":"alleles", 
+"size":25},{"text":"alternative", "size":25},{"text":"application", "size":25},{"text":"barcoded", "size":25},{"text":"bcl6", "size":25},{"text":"biologically", "size":25},{"text":"biomarkers", 
+"size":25},{"text":"british", "size":25},{"text":"burrard", "size":25},{"text":"canada", "size":25},{"text":"canine", "size":25},{"text":"cause", "size":25},{"text":"cfdna", "size":25},{"text":"clonal", 
+"size":25},{"text":"coding", "size":25},{"text":"collection", "size":25},{"text":"colorectal", "size":25},{"text":"columbia", "size":25},{"text":"combinatorial", "size":25},{"text":"drive", 
+"size":25},{"text":"driver", "size":25},{"text":"enhancing", "size":25},{"text":"error-suppressed", "size":25},{"text":"evolutionary", "size":25},{"text":"foxl2", "size":25},{"text":"full-length", 
+"size":25},{"text":"genomics", "size":25},{"text":"high-throughput", "size":25},{"text":"hypermutation", "size":25},{"text":"implications", "size":25},{"text":"inlet", "size":25},{"text":"integrative", 
+"size":25},{"text":"kinase", "size":25},{"text":"libraries", "size":25},{"text":"lines", "size":25},{"text":"lymphoid", "size":25},{"text":"lymphomagenesis", "size":25},{"text":"management", 
+"size":25},{"text":"mapping", "size":25},{"text":"mechanisms", "size":25},{"text":"memory", "size":25},{"text":"mirna", "size":25},{"text":"morphology", "size":25},{"text":"mouse", 
+"size":25},{"text":"mutated", "size":25},{"text":"mutational", "size":25},{"text":"myd88", "size":25},{"text":"neuroblastoma", "size":25},{"text":"noncoding", "size":25},{"text":"nucleotide", 
+"size":25},{"text":"oncogenic", "size":25},{"text":"outcomes", "size":25},{"text":"pancreatic", "size":25},{"text":"panobinostat", "size":25},{"text":"patient", "size":25},{"text":"pediatric", 
+"size":25},{"text":"phase", "size":25},{"text":"pre-contact", "size":25},{"text":"probabilistic", "size":25},{"text":"prognosis", "size":25},{"text":"progression", "size":25},{"text":"project", 
+"size":25},{"text":"proteins", "size":25},{"text":"quality", "size":25},{"text":"refractory", "size":25},{"text":"relapse", "size":25},{"text":"rituximab", "size":25},{"text":"salmon", 
+"size":25},{"text":"samples", "size":25},{"text":"sequence", "size":25},{"text":"signaling", "size":25},{"text":"significance", "size":25},{"text":"single", "size":25},{"text":"small", 
+"size":25},{"text":"species", "size":25},{"text":"subtypes", "size":25},{"text":"sudden", "size":25},{"text":"systemic", "size":25},{"text":"tazemetostat", "size":25},{"text":"technology", 
+"size":25},{"text":"therapy", "size":25},{"text":"thereof", "size":25},{"text":"tnfrsf14", "size":25},{"text":"transformation", "size":25},{"text":"treatment", "size":25},{"text":"trial", 
+"size":25},{"text":"uses", "size":25},{"text":"via", "size":25},{"text":"whole", "size":25},{"text":"xenopus", "size":25},{"text":"-depth", "size":12.5},{"text":"10967", "size":12.5},{"text":"2006", 
+"size":12.5},{"text":"2016", "size":12.5},{"text":"2121", "size":12.5},{"text":"402cg", "size":12.5},{"text":"5-fluorouracil", "size":12.5},{"text":"5q–syndrome", "size":12.5},{"text":"aberrant", 
+"size":12.5},{"text":"abyss", "size":12.5},{"text":"accurate", "size":12.5},{"text":"acquired", "size":12.5},{"text":"acquisition", "size":12.5},{"text":"act", "size":12.5},{"text":"activity", 
+"size":12.5},{"text":"adapters", "size":12.5},{"text":"adenocarcinoma", "size":12.5},{"text":"adult-type", "size":12.5},{"text":"age", "size":12.5},{"text":"aggregation", "size":12.5},{"text":"aggressive", 
+"size":12.5},{"text":"alexa–", "size":12.5},{"text":"altered", "size":12.5},{"text":"altering", "size":12.5},{"text":"alters", "size":12.5},{"text":"amyloid", "size":12.5},{"text":"analyses", 
+"size":12.5},{"text":"analytics", "size":12.5},{"text":"ancient", "size":12.5},{"text":"angioimmunoblastic", "size":12.5},{"text":"anti-siglec-8", "size":12.5},{"text":"antibiotics", 
+"size":12.5},{"text":"antibody", "size":12.5},{"text":"approaches", "size":12.5},{"text":"architecture", "size":12.5},{"text":"archive", "size":12.5},{"text":"arrhythmogenic", "size":12.5},{"text":"assay", 
+"size":12.5},{"text":"assembler", "size":12.5},{"text":"assemblies", "size":12.5},{"text":"assembly", "size":12.5},{"text":"attributes", "size":12.5},{"text":"aurkb", "size":12.5},{"text":"autophagy", 
+"size":12.5},{"text":"b-cell-like", "size":12.5},{"text":"baits", "size":12.5},{"text":"basis", "size":12.5},{"text":"bayesian", "size":12.5},{"text":"bbsome", "size":12.5},{"text":"bcl10", 
+"size":12.5},{"text":"behavior", "size":12.5},{"text":"beta", "size":12.5},{"text":"beyond", "size":12.5},{"text":"biopsies", "size":12.5},{"text":"biotinylated", "size":12.5},{"text":"bit", 
+"size":12.5},{"text":"blgsp", "size":12.5},{"text":"braf", "size":12.5},{"text":"brca1", "size":12.5},{"text":"breast", "size":12.5},{"text":"burden", "size":12.5},{"text":"b‐cell", 
+"size":12.5},{"text":"calling", "size":12.5},{"text":"can", "size":12.5},{"text":"cancers", "size":12.5},{"text":"candidate", "size":12.5},{"text":"capture", "size":12.5},{"text":"captures", 
+"size":12.5},{"text":"card11", "size":12.5},{"text":"cardiac", "size":12.5},{"text":"cases", "size":12.5},{"text":"catabolic", "size":12.5},{"text":"catalytic", "size":12.5},{"text":"causes", 
+"size":12.5},{"text":"cd8", "size":12.5},{"text":"cell--origin–specific", "size":12.5},{"text":"cell-like", "size":12.5},{"text":"center", "size":12.5},{"text":"central", "size":12.5},{"text":"chemical", 
+"size":12.5},{"text":"children", "size":12.5},{"text":"ciliary", "size":12.5},{"text":"clinically", "size":12.5},{"text":"clones", "size":12.5},{"text":"coast", "size":12.5},{"text":"collaborative", 
+"size":12.5},{"text":"collected", "size":12.5},{"text":"common", "size":12.5},{"text":"comparative", "size":12.5},{"text":"comparison", "size":12.5},{"text":"complete", "size":12.5},{"text":"completion", 
+"size":12.5},{"text":"confer", "size":12.5},{"text":"conifers", "size":12.5},{"text":"conquer", "size":12.5},{"text":"conservation", "size":12.5},{"text":"constitutive", "size":12.5},{"text":"contorta", 
+"size":12.5},{"text":"cooperating", "size":12.5},{"text":"correlated", "size":12.5},{"text":"correlation", "size":12.5},{"text":"covid-19", "size":12.5},{"text":"cross-cancer", "size":12.5},{"text":"cryptic", 
+"size":12.5},{"text":"ctc", "size":12.5},{"text":"ctdna", "size":12.5},{"text":"cytokine", "size":12.5},{"text":"d83v", "size":12.5},{"text":"ddpcr", "size":12.5},{"text":"decision", 
+"size":12.5},{"text":"deep", "size":12.5},{"text":"deficiency", "size":12.5},{"text":"define", "size":12.5},{"text":"demonstrates", "size":12.5},{"text":"demonstrating", "size":12.5},{"text":"dependencies", 
+"size":12.5},{"text":"depletion-based", "size":12.5},{"text":"derived", "size":12.5},{"text":"design", "size":12.5},{"text":"determinants", "size":12.5},{"text":"determined", 
+"size":12.5},{"text":"determines", "size":12.5},{"text":"developmental", "size":12.5},{"text":"diagnosis", "size":12.5},{"text":"differences", "size":12.5},{"text":"different", 
+"size":12.5},{"text":"disruption", "size":12.5},{"text":"distribution", "size":12.5},{"text":"divide", "size":12.5},{"text":"dna-based", "size":12.5},{"text":"dominantly", "size":12.5},{"text":"drivers", 
+"size":12.5},{"text":"drosophila", "size":12.5},{"text":"drug", "size":12.5},{"text":"dynamics", "size":12.5},{"text":"emerging", "size":12.5},{"text":"endemic", "size":12.5},{"text":"enhancer", 
+"size":12.5},{"text":"eosinophil", "size":12.5},{"text":"ep300", "size":12.5},{"text":"epigenetic", "size":12.5},{"text":"erk", "size":12.5},{"text":"establish", "size":12.5},{"text":"evaluating", 
+"size":12.5},{"text":"evaluation", "size":12.5},{"text":"events", "size":12.5},{"text":"evidence", "size":12.5},{"text":"exacerbates", "size":12.5},{"text":"exceptional", "size":12.5},{"text":"exome", 
+"size":12.5},{"text":"expansion", "size":12.5},{"text":"experiment", "size":12.5},{"text":"exploitable", "size":12.5},{"text":"expression-based", "size":12.5},{"text":"extranodal", 
+"size":12.5},{"text":"ez-er", "size":12.5},{"text":"factor-2", "size":12.5},{"text":"false-negative", "size":12.5},{"text":"fas", "size":12.5},{"text":"fate", "size":12.5},{"text":"fbxo11", 
+"size":12.5},{"text":"fcgr2b", "size":12.5},{"text":"features", "size":12.5},{"text":"filament", "size":12.5},{"text":"fish", "size":12.5},{"text":"fisheries", "size":12.5},{"text":"fondazione", 
+"size":12.5},{"text":"formalin-fixed", "size":12.5},{"text":"foxo1", "size":12.5},{"text":"fusion", "size":12.5},{"text":"galaxy", "size":12.5},{"text":"gcb-dlbcl", "size":12.5},{"text":"germinal", 
+"size":12.5},{"text":"germinal-center", "size":12.5},{"text":"germline–mutated", "size":12.5},{"text":"gestational", "size":12.5},{"text":"granulosa", "size":12.5},{"text":"granulosa-cell", 
+"size":12.5},{"text":"growth", "size":12.5},{"text":"gtpase", "size":12.5},{"text":"gtpases", "size":12.5},{"text":"guiding", "size":12.5},{"text":"gut", "size":12.5},{"text":"h3k27", 
+"size":12.5},{"text":"haematologic", "size":12.5},{"text":"harvesting", "size":12.5},{"text":"hela", "size":12.5},{"text":"helper", "size":12.5},{"text":"high-resolution", "size":12.5},{"text":"high-risk", 
+"size":12.5},{"text":"highlight", "size":12.5},{"text":"histological", "size":12.5},{"text":"histone-modifying", "size":12.5},{"text":"hybridization", "size":12.5},{"text":"hypomorphic", 
+"size":12.5},{"text":"ibrutinib", "size":12.5},{"text":"identify", "size":12.5},{"text":"igcaller", "size":12.5},{"text":"ihc", "size":12.5},{"text":"illumina", "size":12.5},{"text":"immune", 
+"size":12.5},{"text":"immunogenicity", "size":12.5},{"text":"immunoglobulin", "size":12.5},{"text":"immunotherapy", "size":12.5},{"text":"implicates", "size":12.5},{"text":"improved", 
+"size":12.5},{"text":"inactivation", "size":12.5},{"text":"incorporation", "size":12.5},{"text":"increase", "size":12.5},{"text":"increased", "size":12.5},{"text":"indigenous", "size":12.5},{"text":"induced", 
+"size":12.5},{"text":"inducing", "size":12.5},{"text":"infants", "size":12.5},{"text":"inferior", "size":12.5},{"text":"inflammation", "size":12.5},{"text":"informatics", "size":12.5},{"text":"information", 
+"size":12.5},{"text":"inhibitors", "size":12.5},{"text":"inputs", "size":12.5},{"text":"insight", "size":12.5},{"text":"insights", "size":12.5},{"text":"instability", "size":12.5},{"text":"integration", 
+"size":12.5},{"text":"interaction", "size":12.5},{"text":"intra-tumor", "size":12.5},{"text":"intraflagellar", "size":12.5},{"text":"investigating", "size":12.5},{"text":"investigation", 
+"size":12.5},{"text":"isoforms", "size":12.5},{"text":"isolating", "size":12.5},{"text":"italiana …", "size":12.5},{"text":"jointsnvmix", "size":12.5},{"text":"knowledge", "size":12.5},{"text":"kras", 
+"size":12.5},{"text":"kronos", "size":12.5},{"text":"laevis", "size":12.5},{"text":"landscape", "size":12.5},{"text":"landscapes", "size":12.5},{"text":"learning", "size":12.5},{"text":"leukemia-associated", 
+"size":12.5},{"text":"ligand", "size":12.5},{"text":"lobular", "size":12.5},{"text":"located", "size":12.5},{"text":"logistics", "size":12.5},{"text":"longsage", "size":12.5},{"text":"loss--function", 
+"size":12.5},{"text":"loss–associated", "size":12.5},{"text":"low", "size":12.5},{"text":"lymphoblastic", "size":12.5},{"text":"machine", "size":12.5},{"text":"making", "size":12.5},{"text":"malignancies", 
+"size":12.5},{"text":"many", "size":12.5},{"text":"mapk", "size":12.5},{"text":"marine", "size":12.5},{"text":"massive", "size":12.5},{"text":"mast", "size":12.5},{"text":"matched", 
+"size":12.5},{"text":"mcl3001", "size":12.5},{"text":"mechanism", "size":12.5},{"text":"mediators", "size":12.5},{"text":"mef2b", "size":12.5},{"text":"melanogaster", "size":12.5},{"text":"metastatic", 
+"size":12.5},{"text":"method", "size":12.5},{"text":"methods", "size":12.5},{"text":"methylation", "size":12.5},{"text":"mgc", "size":12.5},{"text":"mgcvol", "size":12.5},{"text":"mhc", 
+"size":12.5},{"text":"microarray", "size":12.5},{"text":"microbiota", "size":12.5},{"text":"micrornas", "size":12.5},{"text":"minimal", "size":12.5},{"text":"mir-145", "size":12.5},{"text":"mir-146a", 
+"size":12.5},{"text":"mll-af9", "size":12.5},{"text":"mll2", "size":12.5},{"text":"monophosphate", "size":12.5},{"text":"mrna", "size":12.5},{"text":"multicenter", "size":12.5},{"text":"multiplexing", 
+"size":12.5},{"text":"mutant", "size":12.5},{"text":"myeloid", "size":12.5},{"text":"myocyte-specific", "size":12.5},{"text":"nanogram", "size":12.5},{"text":"neoplasm", "size":12.5},{"text":"nervous", 
+"size":12.5},{"text":"network", "size":12.5},{"text":"neuroendocrine", "size":12.5},{"text":"new", "size":12.5},{"text":"newborn", "size":12.5},{"text":"newly", "size":12.5},{"text":"nfkbiz", 
+"size":12.5},{"text":"ngs", "size":12.5},{"text":"nhl", "size":12.5},{"text":"nih", "size":12.5},{"text":"nine", "size":12.5},{"text":"nodal", "size":12.5},{"text":"non-coding", 
+"size":12.5},{"text":"non-v600", "size":12.5},{"text":"normaltumour", "size":12.5},{"text":"notch1", "size":12.5},{"text":"novo", "size":12.5},{"text":"now", "size":12.5},{"text":"nsdhl", 
+"size":12.5},{"text":"o-glcnacylated", "size":12.5},{"text":"obinutuzumab", "size":12.5},{"text":"oncogene", "size":12.5},{"text":"opportunities", "size":12.5},{"text":"origin", "size":12.5},{"text":"oryza", 
+"size":12.5},{"text":"osteosarcoma", "size":12.5},{"text":"outcome", "size":12.5},{"text":"ovaries", "size":12.5},{"text":"ovary", "size":12.5},{"text":"paired", "size":12.5},{"text":"paraffin-embedded", 
+"size":12.5},{"text":"partner", "size":12.5},{"text":"paternal", "size":12.5},{"text":"pathway", "size":12.5},{"text":"patterns", "size":12.5},{"text":"pediatric-type", "size":12.5},{"text":"peripheral", 
+"size":12.5},{"text":"personalized", "size":12.5},{"text":"phenotype", "size":12.5},{"text":"pinus", "size":12.5},{"text":"platform", "size":12.5},{"text":"pmbl", "size":12.5},{"text":"polycomb-group", 
+"size":12.5},{"text":"post-tetraploidization", "size":12.5},{"text":"powerhouse", "size":12.5},{"text":"prc2", "size":12.5},{"text":"pre-treatment", "size":12.5},{"text":"precision", 
+"size":12.5},{"text":"predicting", "size":12.5},{"text":"predictor", "size":12.5},{"text":"predictors", "size":12.5},{"text":"preliminary", "size":12.5},{"text":"preparation", "size":12.5},{"text":"primed", 
+"size":12.5},{"text":"pro-tumorigenic", "size":12.5},{"text":"processing", "size":12.5},{"text":"profiled", "size":12.5},{"text":"prognostic", "size":12.5},{"text":"prognostically", 
+"size":12.5},{"text":"programmed", "size":12.5},{"text":"promote", "size":12.5},{"text":"proteotranscriptomic", "size":12.5},{"text":"protocol", "size":12.5},{"text":"protocol-agnostic", 
+"size":12.5},{"text":"protocols", "size":12.5},{"text":"prps-st", "size":12.5},{"text":"quantify", "size":12.5},{"text":"quantity", "size":12.5},{"text":"rab-28", "size":12.5},{"text":"rac", 
+"size":12.5},{"text":"randomly", "size":12.5},{"text":"ras-associating", "size":12.5},{"text":"rational", "size":12.5},{"text":"ray", "size":12.5},{"text":"rcor1", "size":12.5},{"text":"receptor", 
+"size":12.5},{"text":"recognition", "size":12.5},{"text":"recognized", "size":12.5},{"text":"reconstructing", "size":12.5},{"text":"regulatory", "size":12.5},{"text":"rejection", 
+"size":12.5},{"text":"relapsedrefractory", "size":12.5},{"text":"relapserefractory", "size":12.5},{"text":"related", "size":12.5},{"text":"remains", "size":12.5},{"text":"remodeling", 
+"size":12.5},{"text":"repertoire", "size":12.5},{"text":"reporting", "size":12.5},{"text":"repression", "size":12.5},{"text":"resolution", "size":12.5},{"text":"resource", "size":12.5},{"text":"reversible", 
+"size":12.5},{"text":"rha1", "size":12.5},{"text":"rhodococcus", "size":12.5},{"text":"risk", "size":12.5},{"text":"rrna", "size":12.5},{"text":"salish", "size":12.5},{"text":"salmonid", 
+"size":12.5},{"text":"sam", "size":12.5},{"text":"sample", "size":12.5},{"text":"sativa", "size":12.5},{"text":"scientific", "size":12.5},{"text":"selection", "size":12.5},{"text":"selectively", 
+"size":12.5},{"text":"self-training", "size":12.5},{"text":"semi-degenerate", "size":12.5},{"text":"serial", "size":12.5},{"text":"sex-selective", "size":12.5},{"text":"shaped", "size":12.5},{"text":"shared", 
+"size":12.5},{"text":"short-read", "size":12.5},{"text":"shotgun", "size":12.5},{"text":"significant", "size":12.5},{"text":"silencing", "size":12.5},{"text":"single-agent", 
+"size":12.5},{"text":"single-cell", "size":12.5},{"text":"size", "size":12.5},{"text":"snvmix", "size":12.5},{"text":"specimens", "size":12.5},{"text":"sporadic", "size":12.5},{"text":"status", 
+"size":12.5},{"text":"strategies", "size":12.5},{"text":"stratification", "size":12.5},{"text":"subclassification", "size":12.5},{"text":"subgroups", "size":12.5},{"text":"subset", 
+"size":12.5},{"text":"substra", "size":12.5},{"text":"subtype", "size":12.5},{"text":"super-enhancer", "size":12.5},{"text":"supervised", "size":12.5},{"text":"survival", "size":12.5},{"text":"suspected", 
+"size":12.5},{"text":"syndrome", "size":12.5},{"text":"synthetase", "size":12.5},{"text":"system", "size":12.5},{"text":"system-level", "size":12.5},{"text":"t-cell–derived", "size":12.5},{"text":"tag", 
+"size":12.5},{"text":"targets", "size":12.5},{"text":"tbl1xr1", "size":12.5},{"text":"tbl1xr1tp63", "size":12.5},{"text":"tcr", "size":12.5},{"text":"technologies", 
+"size":12.5},{"text":"temperature-sensitive", "size":12.5},{"text":"temporal", "size":12.5},{"text":"temsirolimus", "size":12.5},{"text":"testicular", "size":12.5},{"text":"theoretical", 
+"size":12.5},{"text":"therapeutically", "size":12.5},{"text":"therapeutics", "size":12.5},{"text":"thin", "size":12.5},{"text":"tlr-mediated", "size":12.5},{"text":"tmem30a", "size":12.5},{"text":"tool", 
+"size":12.5},{"text":"total", "size":12.5},{"text":"toward", "size":12.5},{"text":"traf3", "size":12.5},{"text":"transcriptomes", "size":12.5},{"text":"transcriptomic", "size":12.5},{"text":"transcriptomics", 
+"size":12.5},{"text":"transgenic", "size":12.5},{"text":"translocations", "size":12.5},{"text":"transport", "size":12.5},{"text":"treated", "size":12.5},{"text":"treating", "size":12.5},{"text":"trials", 
+"size":12.5},{"text":"trimethylation", "size":12.5},{"text":"trophoblastic", "size":12.5},{"text":"tropicalis", "size":12.5},{"text":"tumor–initiating", "size":12.5},{"text":"tumour", 
+"size":12.5},{"text":"two", "size":12.5},{"text":"types", "size":12.5},{"text":"tyr641", "size":12.5},{"text":"ultra", "size":12.5},{"text":"ultrasensitive", "size":12.5},{"text":"uncovered", 
+"size":12.5},{"text":"underlying", "size":12.5},{"text":"unexpected", "size":12.5},{"text":"unique", "size":12.5},{"text":"uridine", "size":12.5},{"text":"utility", "size":12.5},{"text":"utr", 
+"size":12.5},{"text":"variability", "size":12.5},{"text":"variant", "size":12.5},{"text":"vascular", "size":12.5},{"text":"viral", "size":12.5},{"text":"visualization", "size":12.5},{"text":"vitro", 
+"size":12.5},{"text":"vulnerability", "size":12.5},{"text":"whole-organism", "size":12.5},{"text":"without", "size":12.5},{"text":"workflow", "size":12.5},{"text":"workshop", "size":12.5},{"text":"worse", 
+"size":12.5},{"text":"y641", "size":12.5}];
+
+
+      d3.wordcloud()
+        .size([1200, 1000])
+        .fill(d3.scale.ordinal().range(["#F53442", "#8E2E39", "#B3BE66", "#EF2B3B", "#B7CF91", "#D65653", "#FA325B", "#E03851", "#902018", "#71B172", "#8B3946", "#76AC5E", "#944906", "#9F6763", "#7CBF8C", 
+"#FEE578"]))
+     //   .rotate(function() { return ~~(Math.random() * 2) * 90; })
+        .font("Optima")
+        .scale("linear")
+        .words(words)
+        .start();
+
+    </script>
+  </body>
+</html>
+
