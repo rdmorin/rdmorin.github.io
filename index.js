@@ -33,20 +33,30 @@ var examples = {
             '  }\n'+
             '}'
   },
-  'web-tech': {
-    list: '26 Web Technologies\n20 HTML\n20 <canvas>\n' +
-          '15 CSS\n15 JavaScript\n12 Document Object Model\n12 <audio>\n12 <video>\n12 Web Workers\n12 XMLHttpRequest\n12 SVG\n' +
-          '9 JSON.parse()\n9 Geolocation\n9 data attribute\n9 transform\n9 transition\n9 animation\n' +
-          '7 setTimeout\n7 @font-face\n7 Typed Arrays\n7 FileReader API\n7 FormData\n7 IndexedDB\n' +
-          '7 getUserMedia()\n7 postMassage()\n7 CORS\n6 strict mode\n6 calc()\n6 supports()\n' +
-          '6 media queries\n6 full screen\n6 notification\n6 orientation\n6 requestAnimationFrame\n' +
-          '5 border-radius\n5 box-sizing\n5 rgba()\n5 text-shadow\n5 box-shadow\n5 flexbox\n5 viewpoint',
+  'morin': {
+    list: '45 lymphoma\n27 B-cell\n26 mutations\n25 diffuse\n25 large\n22 sequencing\n' +
+          '16 analysis\n15 cell\n13 genetic\n12 follicular\n12 gene\n12 profiling\n' + 
+          '12 tumor\n11 clinical\n11 DNA\n11 human\n10 DLBCL\n10 expression\n10 genomic\n' + 
+          '10 lymphomas\n9 cancer\n8 cells\n8 circulating\n8 recurrent\n8 somatic\n7 associated\n' +
+          '7 burkitt\n7 characterization\n7 distinct\n7 EZH2\n7 genome\n7 molecular\n7 non-hodgkin\n' +
+          '7 novel\n7 signature\n7 transcriptome\n7 using\n6 discovery\n6 microRNA\n6 mutation\n'+
+          '6 parallel\n6 targeted\n5 data\n5 identifies\n5 mammalian\n5 mantle\n5 massively\n' +
+          '5 next-generation\n5 relapsed\n5 response\n5 reveals\n5 rna\n4 alterations\n4 cdna\n' +
+          '4 cell-free\n4 detection\n4 double-hit\n4 evolution\n4 genes\n4 genome-wide\n' +
+          '4 identification\n4 model\n4 MYC\n4 patients\n4 primary\n4 rearrangements\n4 study\n' +
+          '4 variants\n3 activation\n3 BCL2\n3 blood\n3 classification\n3 coding\n3 collection\n' +
+          '3 comprehensive\n3 death\n3 defines\n3 digital\n3 droplet\n3 embryonic\n3 evolutionary\n' +
+          '3 frequent\n3 full-length\n3 heterogeneity\n3 identified\n3 impact\n3 leukemia\n3 multiplex\n' +
+          '3 neoplasms\n3 noncoding\n3 outcomes\n3 PCR\n3 pediatric\n3 prognosis\n3 project\n3 proteins\n' +
+          '3 provides\n3 quality\n3 quantification\n3 rare\n3 relapse\n3 resistance\n3 role\n3 stem\n' +
+          '3 structural\n3 subgroup\n3 target\n3 therapeutic\n3 treatment\n3 tumors\n3 whole-genome\n3 within\n2 activating\n2 acute\n2 alleles\n2 alternative\n2 application\n2 barcoded\n2 bcl6\n2 biologically\n2 biomarkers\n2 british\n2 burrard\n2 b‐cell\n2 canada\n2 canine\n2 cause\n2 cfdna\n2 clonal\n2 colorectal\n2 columbia\n2 combinatorial\n2 comparison\n2 determinants\n2 drive\n2 driver\n2 dynamics\n2 emerging\n2 enhancing\n2 error-suppressed\n2 expansion\n2 foxl2\n2 genomics\n2 growth\n2 high-risk\n2 high-throughput\n2 hypermutation\n2 implications\n2 inferior\n2 inlet\n2 integrative\n2 kinase\n2 libraries\n2 lines\n2 lymphoid\n2 lymphomagenesis\n2 management\n2 mapping\n2 mechanisms\n2 memory\n2 mgc\n2 miRNA\n2 morphology\n2 mouse\n2 mutated\n2 mutational\n2 myd88\n2 neuroblastoma\n2 nih\n2 nucleotide\n2 oncogenic\n2 outcome\n2 pancreatic\n2 panobinostat\n2 patient\n2 patterns\n2 phase\n2 pre-contact\n2 probabilistic\n2 progression\n2 refractory\n2 rituximab\n2 salmon\n2 samples\n2 sequence\n2 shared\n2 signaling\n2 significance\n2 single\n2 small\n2 species\n2 status\n2 subgroups\n2 subtypes\n2 sudden\n2 systemic\n2 tazemetostat\n2 technology\n2 therapeutically\n2 therapy\n2 thereof\n2 tnfrsf14\n2 transcriptomic\n2 transformation\n2 trial\n2 uses\n2 via\n2 vulnerability\n2 whole\n2 xenopus\n',
     option: '{\n' +
-            '  gridSize: 18,\n' +
+            '  gridSize: 6,\n' +
             '  weightFactor: 3,\n' +
-            '  fontFamily: \'Finger Paint, cursive, sans-serif\',\n' +
+            '  fontFamily: \'Finger Paint, Courier, sans-serif\',\n' +
             '  color: \'#f0f0c0\',\n' +
             '  hover: window.drawBox,\n' +
+            '  shuffle: true,\n' +
             '  click: function(item) {\n' +
             '    alert(item[0] + \': \' + item[1]);\n' +
             '  },\n' +
@@ -486,7 +496,7 @@ jQuery(function($) {
     !(window.location.hash.substr(1) in examples)) {
     // If the initial hash doesn't match to any of the examples,
     // or it doesn't exist, reset it to #love
-    window.location.replace('#love');
+    window.location.replace('#morin');
   } else {
     hashChanged();
   }
