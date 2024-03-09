@@ -378,8 +378,8 @@ jQuery(function($) {
       $.each($list.val().split('\n'), function each(i, line) {
         if (!$.trim(line))
           return;
-
-        var lineArr = line.split(' ');
+        let regex = /[\s]/;
+        var lineArr = line.split(regex);
         var count = parseFloat(lineArr.shift()) || 0;
         list.push([lineArr.join(' '), count]);
       });
